@@ -1,7 +1,7 @@
 /* Author: Mike Ma
 1/11/24 */
 
-let inputText = prompt("Please enter text");
+let inputText = prompt("Please enter a word in English:");
 let firstChar = inputText.slice(0, 1);
 let firstTwoChar = inputText.slice(0, 2);
 firstChar = firstChar.toLowerCase();
