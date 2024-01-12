@@ -1,7 +1,7 @@
 /* Author: Mike Ma
 1/11/24 */
 
-let inputText = prompt("Please enter a word or phrase in English. Phrase format should be \"word1 word2 word3\"");
+let inputText = prompt("Please enter a word or phrase in English. Phrase format should be:\nword1 word2 word3");
 let inputTextArray = inputText.split(" "); //splitting input on the space
 
 for (let i = 0; i < inputTextArray.length; i++) { //for loop iterates the if statements below through each element of array.
