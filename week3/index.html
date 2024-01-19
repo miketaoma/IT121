@@ -8,10 +8,42 @@
         <script>
             let grades = "jim|25, sue|32, mary|34, ann|22, ted|28, frank|15, lisa|19, mike|30, ahn|26, vishaya|27";
             gradesArray = grades.split(", ");
+            gradesArray.sort();
+            let totalScore = 0;
+            let minScore = 0;
+            let maxScore = 0;
+            let numberOfStudents = gradesArray.length;
             
+
             for (let i = 0; i < gradesArray.length; i++) {
-                document.write(gradesArray[i] + " ");
+                individualStudent = gradesArray[i].split("|");
+                let studentName = individualStudent[0];
+                let studentScore = individualStudent[1];
+                studentScore = parseInt(studentScore);
+                let firstChar = studentName.slice(0, 1);
+                firstChar = firstChar.toUpperCase();
+                studentName = firstChar + studentName.slice(1);
+                totalScore = studentScore + totalScore;
+                document.write("Name: " + studentName + " - ");
+                document.write("Score: " + studentScore + "<br>")
+
+                if (i == 0) {
+                    minScore = studentScore;
+                    maxScore = studentScore;
+                } else if (studentScore < minScore) {
+                    minScore = studentScore;
+                } else if (studentScore > maxScore) {
+                    maxScore = studentScore;
+                }
             }
+
+            document.write("<br>Number of students = " + numberOfStudents + "<br>");
+            document.write("Lowest Score = " + minScore + "<br>");
+            document.write("Highest Score = " + maxScore + "<br>");
+            document.write("Total scores = " + totalScore + "<br>");
+            document.write("Average score = " + totalScore / numberOfStudents + "<br>");
+            
+
             
         </script>
     </body>
