@@ -7,30 +7,30 @@
     <body>
         <script>
             let grades = "jim|25, sue|32, mary|34, ann|22, ted|28, frank|15, lisa|19, mike|30, ahn|26, vishaya|27";
-            gradesArray = grades.split(", ");
-            gradesArray.sort();
+            gradesArray = grades.split(", "); //splits string into array on ", "
+            gradesArray.sort(); //sorting array contents to be in alphabetical order
             let totalScore = 0;
             let minScore = 0;
             let maxScore = 0;
             let numberOfStudents = gradesArray.length;
             
 
-            for (let i = 0; i < gradesArray.length; i++) {
-                individualStudent = gradesArray[i].split("|");
+            for (let i = 0; i < gradesArray.length; i++) { 
+                individualStudent = gradesArray[i].split("|"); //splitting array of all students into a smaller one with two elements, student name @ 0 and student score @ 1. individualStudent refreshes when the for loop iterates.
                 let studentName = individualStudent[0];
                 let studentScore = individualStudent[1];
-                studentScore = parseInt(studentScore);
-                let firstChar = studentName.slice(0, 1);
+                studentScore = parseInt(studentScore); //studentScore convert to int
+                let firstChar = studentName.slice(0, 1); //retrieving first character of studentName to capitalize
                 firstChar = firstChar.toUpperCase();
-                studentName = firstChar + studentName.slice(1);
-                totalScore = studentScore + totalScore;
+                studentName = firstChar + studentName.slice(1); //reformatting studentName to include capitalized firstChar + studentName after 1st char.
+                totalScore = studentScore + totalScore; //totalScore compounding
                 document.write(studentName + " - ");
                 document.write(studentScore + "<br>")
 
-                if (i == 0) {
+                if (i == 0) { //on first loop, set minScore and maxScore to the first value for comparison
                     minScore = studentScore;
                     maxScore = studentScore;
-                } else if (studentScore < minScore) {
+                } else if (studentScore < minScore) { //after first loop, compare studentScore to minScore and maxScore
                     minScore = studentScore;
                 } else if (studentScore > maxScore) {
                     maxScore = studentScore;
