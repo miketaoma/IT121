@@ -22,47 +22,47 @@
 // add validatePassword function here
 //abcdefgh
 const validatePassword = (myPassword) => {
-let uppercaseCounter = 0;
+let uppercaseCounter = 0; //two counters, keeping track of uppercase and lowercase letter instances in the given password.
 let lowercaseCounter = 0;
 let uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 let lowercaseLetters = "abcdefghijklmnopqrstuvwxyz"
 
   for (let i = 0; i < myPassword.length; i++) {
-    let passChar = myPassword.charAt(i);
+    let passChar = myPassword.charAt(i); //stores current password character being tested in a variable that refreshes as i increments upwards.
 
     if (uppercaseLetters.includes(passChar)) {
-      uppercaseCounter++;
+      uppercaseCounter++; //if letter is uppercase, counter increments.
     }
 
     if (lowercaseLetters.includes(passChar)) {
-      lowercaseCounter++;
+      lowercaseCounter++; //if letter is lowercase, counter increments.
     }
   }
 
-  if (myPassword.length < 8) {
+  if (myPassword.length < 8) { //using .length to test the length of the password, which should be >= 8
     $("#message").html("Password too short! Please use at least 8 characters");
     return false;
-  } else if (uppercaseCounter == 0) {
+  } else if (uppercaseCounter == 0) { //uppercase counter just can't equal 0, so if it does we produce the error message and return false.
     $("#message").html("Please use at least 1 uppercase letter in your password!");
     return false;
-  } else if (lowercaseCounter == 0) {
+  } else if (lowercaseCounter == 0) { //same test as uppercase, just for lowercase.
     $("#message").html("Please use at least 1 lowercase letter in your password!");
     return false;
   } else {
-    return true;
+    return true; //if all tests pass, we return true.
   }
 }
 
 
 const validateForm = (myForm) => {
 
-  var firstname = myForm.firstname.value; // get text of firstname field
-  var lastname = myForm.lastname.value;
-  var password = myForm.password.value;
+  var firstname = myForm.firstname.value; //get text of firstname field
+  var lastname = myForm.lastname.value; //get text of lastname field
+  var password = myForm.password.value; //get text of password field
 
-  $("#message").html("All entries valid!");
+  $("#message").html("All entries valid!"); //if all entries are valid, this message prints and we're happy.
 
-  if (firstname.length == 0) {
+  if (firstname.length == 0) { //checking if first and lastname fields are empty.
     $("#message").html("Please write your first name in the appropriate field!");
     return false;
   } else if (lastname.length == 0) {
