@@ -57,13 +57,19 @@ let lowercaseLetters = "abcdefghijklmnopqrstuvwxyz"
 const validateForm = (myForm) => {
 
   var firstname = myForm.firstname.value; // get text of firstname field
+  var lastname = myForm.lastname.value;
   var password = myForm.password.value;
 
-  // update 'message' DIV with appropriate wording
-  $("#message").html("Button clicked");
+  $("#message").html("All entries valid!");
 
-  /* Form validation code goes here
-  */
+  if (firstname.length == 0) {
+    $("#message").html("Please write your first name in the appropriate field!");
+    return false;
+  } else if (lastname.length == 0) {
+    $("#message").html("Please write your last name in the appropriate field!");
+    return false;
+  }
+
   validatePassword(password);
 
   return false; // prevent page reload
