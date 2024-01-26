@@ -20,17 +20,27 @@
 <script>
 
 // add validatePassword function here
+const validatePassword = (myPassword) => {
+
+  if (myPassword.length < 8) {
+    $("#message").html("Password too short! Please use at least 8 characters");
+    return false;
+  } 
+
+}
 
 
 const validateForm = (myForm) => {
 
   var firstname = myForm.firstname.value; // get text of firstname field
+  var password = myForm.password.value;
 
   // update 'message' DIV with appropriate wording
   $("#message").html("Button clicked");
 
   /* Form validation code goes here
   */
+  validatePassword(password);
 
   return false; // prevent page reload
 }
