@@ -20,13 +20,37 @@
 <script>
 
 // add validatePassword function here
+//abcdefgh
 const validatePassword = (myPassword) => {
+let uppercaseCounter = 0;
+let lowercaseCounter = 0;
+let uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+let lowercaseLetters = "abcdefghijklmnopqrstuvwxyz"
+
+  for (let i = 0; i < myPassword.length; i++) {
+    let passChar = myPassword.charAt(i);
+
+    if (uppercaseLetters.includes(passChar)) {
+      uppercaseCounter++;
+    }
+
+    if (lowercaseLetters.includes(passChar)) {
+      lowercaseCounter++;
+    }
+  }
 
   if (myPassword.length < 8) {
     $("#message").html("Password too short! Please use at least 8 characters");
     return false;
-  } 
-
+  } else if (uppercaseCounter == 0) {
+    $("#message").html("Please use at least 1 uppercase letter in your password!");
+    return false;
+  } else if (lowercaseCounter == 0) {
+    $("#message").html("Please use at least 1 lowercase letter in your password!");
+    return false;
+  } else {
+    return true;
+  }
 }
 
 
