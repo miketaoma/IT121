@@ -70,20 +70,20 @@ const deck = [
 
 const dealHand = (deck) => {
 const handSize = 5;
-const hand = [];
-let handString = "";
-  /* code to deal a card hand goes here */
+const hand = []; //blank array to save current hand of card objects.
+let handString = ""; //concatenates hand in string form here.
+
 for (let i = 0; i < handSize; i++) {
 
   let randomNum = Math.floor(Math.random() * 52);
   
-  while (hand.includes(deck[randomNum])) {
+  while (hand.includes(deck[randomNum])) { //prevents hand from receiving duplicate entries. 
     randomNum = Math.floor(Math.random() * 52);
   }
 
-  hand.push(deck[randomNum]);
+  hand.push(deck[randomNum]); //after while loop finishes and distinct number is generated, the object referenced in deck is appended to hand array.
 
-  if (hand[i].value == 11) {
+  if (hand[i].value == 11) { //rewrites face cards to appropriate strings.
     hand[i].value = "Jack";
   } else if (hand[i].value == 12) {
     hand[i].value = "Queen";
@@ -93,7 +93,7 @@ for (let i = 0; i < handSize; i++) {
     hand[i].value = "Ace";
   }
 
-  handString += hand[i].value + " of " + hand[i].suit + "<br>";
+  handString += hand[i].value + " of " + hand[i].suit + "<br>"; //appending value + suit to handString for use in div.
 }
 
 $("#card_hand").html(handString);
