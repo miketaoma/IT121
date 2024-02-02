@@ -13,76 +13,21 @@
 
 <script>
 
-//FIXME: Generate deck array programmatically
-
-function Card(value, suit) {
+function Card(value, suit) { //Object constructor for each card.
   this.value = value;
   this.suit = suit;
 }
 
-const deck = [];
+const deck = []; //Blank deck array where constructed cards will be appended.
+const suits = ["Clubs", "Spades", "Hearts", "Diamonds"];
+const values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]; //Numeric values that represent each value of a card.
 
-for (let val = 2; val < 15; val++) {
-  const card = new Card(val, "Clubs");
-  deck.push(card);
+for (let i = 0; i < 13; i++) { //nested for loops build card objects, starts with 2, gets 4 suits assigned, then iterates up to 12 (value of 14 in the values array).
+  for (let j = 0; j < 4; j++) {
+    const card = new Card(values[i], suits[j]);
+    deck.push(card);
+  }
 }
-
-document.write(deck.length);
-
-/*const deck = [
-{ value: 2, suit: "Clubs" },
-{ value: 3, suit: "Clubs" },
-{ value: 4, suit: "Clubs" },
-{ value: 5, suit: "Clubs" },
-{ value: 6, suit: "Clubs" },
-{ value: 7, suit: "Clubs" },
-{ value: 8, suit: "Clubs" },
-{ value: 9, suit: "Clubs" },
-{ value: 10, suit: "Clubs" },
-{ value: 11, suit: "Clubs" },
-{ value: 12, suit: "Clubs" },
-{ value: 13, suit: "Clubs" },
-{ value: 14, suit: "Clubs" },
-{ value: 2, suit: "Spades" },
-{ value: 3, suit: "Spades" },
-{ value: 4, suit: "Spades" },
-{ value: 5, suit: "Spades" },
-{ value: 6, suit: "Spades" },
-{ value: 7, suit: "Spades" },
-{ value: 8, suit: "Spades" },
-{ value: 9, suit: "Spades" },
-{ value: 10, suit: "Spades" },
-{ value: 11, suit: "Spades" },
-{ value: 12, suit: "Spades" },
-{ value: 13, suit: "Spades" },
-{ value: 14, suit: "Spades" },
-{ value: 2, suit: "Hearts" },
-{ value: 3, suit: "Hearts" },
-{ value: 4, suit: "Hearts" },
-{ value: 5, suit: "Hearts" },
-{ value: 6, suit: "Hearts" },
-{ value: 7, suit: "Hearts" },
-{ value: 8, suit: "Hearts" },
-{ value: 9, suit: "Hearts" },
-{ value: 10, suit: "Hearts" },
-{ value: 11, suit: "Hearts" },
-{ value: 12, suit: "Hearts" },
-{ value: 13, suit: "Hearts" },
-{ value: 14, suit: "Hearts" },
-{ value: 2, suit: "Diamonds" },
-{ value: 3, suit: "Diamonds" },
-{ value: 4, suit: "Diamonds" },
-{ value: 5, suit: "Diamonds" },
-{ value: 6, suit: "Diamonds" },
-{ value: 7, suit: "Diamonds" },
-{ value: 8, suit: "Diamonds" },
-{ value: 9, suit: "Diamonds" },
-{ value: 10, suit: "Diamonds" },
-{ value: 11, suit: "Diamonds" },
-{ value: 12, suit: "Diamonds" },
-{ value: 13, suit: "Diamonds" },
-{ value: 14, suit: "Diamonds" }
-];*/
 
 const dealHand = (deck) => {
 const handSize = 5;
