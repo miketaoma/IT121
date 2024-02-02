@@ -15,7 +15,21 @@
 
 //FIXME: Generate deck array programmatically
 
-const deck = [
+function Card(value, suit) {
+  this.value = value;
+  this.suit = suit;
+}
+
+const deck = [];
+
+for (let val = 2; val < 15; val++) {
+  const card = new Card(val, "Clubs");
+  deck.push(card);
+}
+
+document.write(deck.length);
+
+/*const deck = [
 { value: 2, suit: "Clubs" },
 { value: 3, suit: "Clubs" },
 { value: 4, suit: "Clubs" },
@@ -68,7 +82,7 @@ const deck = [
 { value: 12, suit: "Diamonds" },
 { value: 13, suit: "Diamonds" },
 { value: 14, suit: "Diamonds" }
-];
+];*/
 
 const dealHand = (deck) => {
 const handSize = 5;
