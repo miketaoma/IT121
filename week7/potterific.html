@@ -58,6 +58,20 @@
         
         - add click handler to reset table 
         */
+        const myTable = document.querySelector('table')
+        characters.forEach((item) => {
+            myTable.innerHTML = myTable.innerHTML + `<tr>
+                    <td>${item.name}</td>
+                    <td>${item.role}</td>
+                    <td>${item.house}</td>
+                    <td>${item.gender}</td>
+                    <td>${item.alignment}</td>
+                </tr>`
+        })
+
+        //generate buttons programmatically
+
+        
 
         });
 
