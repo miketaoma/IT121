@@ -58,7 +58,9 @@
         
         - add click handler to reset table 
         */
-        const myTable = document.querySelector('table')
+        let uniqueHouses = [];
+        let counter = 0
+        const myTable = document.querySelector('table');
         characters.forEach((item) => {
             myTable.innerHTML = myTable.innerHTML + `<tr>
                     <td>${item.name}</td>
@@ -67,11 +69,16 @@
                     <td>${item.gender}</td>
                     <td>${item.alignment}</td>
                 </tr>`
-        })
+            
+            if (!uniqueHouses.includes(item.house) && item.house.length > 0) {
+                uniqueHouses[counter] = item.house;
+                counter++;
+            }
+        });
 
         //generate buttons programmatically
-
         
+
 
         });
 
