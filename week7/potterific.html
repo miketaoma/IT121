@@ -77,7 +77,13 @@
         });
 
         //generate buttons programmatically
-        
+        for (let i = 0; i < uniqueHouses.length; i++) {
+            const newButton = document.createElement('button');
+            newButton.textContent = uniqueHouses[i];
+            document.body.appendChild(newButton);
+        }
+
+
 
 
         });
