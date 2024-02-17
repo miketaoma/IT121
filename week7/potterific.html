@@ -83,8 +83,38 @@
             document.body.appendChild(newButton);
         }
 
+        var gryf = $('td:contains("Gryffindor")').parent();
+        var huff = $('td:contains("Hufflepuff")').parent();
+        var slyt = $('td:contains("Slytherin")').parent();
+        var rave = $('td:contains("Ravenclaw")').parent();
 
+        $("button:contains(Gryffindor)").click(function() {
+            $("tr").show();
+            $("tr").not(gryf).hide();
+            $("th").parent().show();
+        });
 
+        $("button:contains(Hufflepuff)").click(function() {
+            $("tr").show();
+            $("tr").not(huff).hide();
+            $("th").parent().show();
+        });
+
+        $("button:contains(Slytherin)").click(function() {
+            $("tr").show();
+            $("tr").not(slyt).hide();
+            $("th").parent().show();
+        });
+
+        $("button:contains(Ravenclaw)").click(function() {
+            $("tr").show();
+            $("tr").not(rave).hide();
+            $("th").parent().show();
+        });
+
+        $("button:contains(reset)").click(function() {
+            $("tr").show();
+        });
 
         });
 
