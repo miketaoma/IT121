@@ -6,9 +6,11 @@
     </head>
     <body>
         <script>
-            fetch('http://api.openweathermap.org/data/2.5/forecast?q=seattle,US&appid=7c14c6f735c7f146034cb70654702934')
-                .then((response) => response.json())
-                .then((data) => console.log(data));
+        let city = prompt("Please enter a city in the US.");
+
+        fetch('http://api.openweathermap.org/data/2.5/forecast?q=' + city + ',US&appid=7c14c6f735c7f146034cb70654702934')
+            .then((response) => response.json())
+            .then((data) => console.log(data));
 
         </script>
     </body>
