@@ -2,15 +2,57 @@
 <html>
     <head>
         <title>Sunny With a Chance of Awesome</title>
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
         <meta charset="utf-8">
     </head>
     <body>
         <script>
-        let city = prompt("Please enter a city in the US.");
+        
+        const kelvinToF = (value) => {
+            let fahrenheit = (((Number(value) - 273.15)*9)/5) + 32;
+            return fahrenheit.toFixed(2);
+        }
 
-        fetch('http://api.openweathermap.org/data/2.5/forecast?q=' + city + ',US&appid=7c14c6f735c7f146034cb70654702934')
+        const convertUnixDate = (unixTimestamp) => {
+            let forecastDate = new Date(unixTimestamp * 1000);
+            return forecastDate;
+        }
+        let inputCity = prompt("Please enter a city in the US.");
+
+        fetch('http://api.openweathermap.org/data/2.5/forecast?q=' + inputCity + ',US&appid=7c14c6f735c7f146034cb70654702934')
             .then((response) => response.json())
-            .then((data) => console.log(data));
+            .then((data) => {
+                console.log(data);
+
+                let cityInfoElement = $("<div>").html("Five Day Forecast for " + data.city.name + ":");
+                $("body").append(cityInfoElement);
+
+                for (let i = 0; i < data.list.length; i = i + 8) {
+                    let date = data.list[i].dt;
+                    let tempMin = data.list[i].main.temp_min;
+                    let tempMax = data.list[i].main.temp_max;
+                    let dayHumidity = data.list[i].main.humidity;
+                    let weatherDesc = data.list[i].weather[0].description;
+                    let weatherIcon = data.list[i].weather[0].icon;
+
+                    let dateElement = $("<div>").html(convertUnixDate(date));
+                    let tempMinElement = $("<div>").html("Min temp: " + kelvinToF(tempMin));
+                    let tempMaxElement = $("<div>").html("Max temp: " + kelvinToF(tempMax));
+                    let humidityElement = $("<div>").html("Humidity: " + dayHumidity);
+                    let descElement = $("<div>").html(weatherDesc);
+                    let img = document.createElement("img");
+                    img.src = "http://openweathermap.org/img/w/" + weatherIcon + ".png"
+                    $("body").append(dateElement);
+                    $("body").append(tempMinElement);
+                    $("body").append(tempMaxElement);
+                    $("body").append(humidityElement);
+                    $("body").append(descElement);
+                    $("body").append(img);
+                }
+            })
+            .catch((err) => alert("Input invalid, please refresh and try again." + "\n" + err));
+
+
 
         </script>
     </body>
