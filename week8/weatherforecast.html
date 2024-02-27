@@ -18,8 +18,9 @@
             return forecastDate;
         }
         let inputCity = prompt("Please enter a city in the US.");
+        let countryCode = "US";
 
-        fetch('http://api.openweathermap.org/data/2.5/forecast?q=' + inputCity + ',US&appid=7c14c6f735c7f146034cb70654702934')
+        fetch('http://api.openweathermap.org/data/2.5/forecast?q=' + inputCity + ',' + countryCode + '&appid=7c14c6f735c7f146034cb70654702934')
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
