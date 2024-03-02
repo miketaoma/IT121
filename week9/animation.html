@@ -16,29 +16,76 @@
 </style>
 <body>
 
-<p><button onclick="changeColor()">Click Me</button></p> 
+<p><button onclick="changeColor()">Click Me</button></p>
 
 <div id ="container">
   <div id ="animate"></div>
 </div>
 
+<canvas id="myCanvas" width="1000" height="800"></canvas>
 <script>
 function changeColor() {
   let id = null;
   const elem = document.getElementById("animate");   
   clearInterval(id);
-  id = setInterval(frame, 120);
+  id = setInterval(frame, 240);
   let counter = 0;
   const colors = ["black", "blue", "gold", "purple", "yellow", "orange", "red"]
   function frame() {
     if (elem.style.backgroundColor == "red") {
       clearInterval(id);
+      elem.style.backgroundColor = "whitesmoke"
     } else {
       counter++; 
       elem.style.backgroundColor = colors[counter];
     }
   }
 }
+
+  const myCanvas = document.getElementById("myCanvas");
+  const ctx = myCanvas.getContext("2d");
+
+    ctx.fillStyle = "gray";
+    ctx.fillRect(0, 0, 100, 100);
+    ctx.moveTo(100, 100);
+    ctx.lineTo(200, 200);
+
+    ctx.moveTo(0, 0);
+    ctx.lineTo(100, 100);
+
+    ctx.moveTo(0, 100);
+    ctx.lineTo(100, 200);
+
+    ctx.moveTo(100, 0);
+    ctx.lineTo(200, 100);
+
+    ctx.rect(100, 100, 100, 100);
+    ctx.strokeStyle = "blue";
+    ctx.stroke();
+
+    ctx.strokeStyle = "black";
+
+    ctx.fillStyle = "green";
+    ctx.beginPath();
+    ctx.arc(400, 200, 100, 0, .5 * Math.PI);
+    ctx.stroke();
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.moveTo(500, 200);
+    ctx.lineTo(400, 200);
+    ctx.lineTo(400, 300);
+    ctx.lineTo(500, 200);
+    ctx.stroke();
+
+    ctx.clearRect(200, 200, 200, 200);
+
+    ctx.fillStyle = "purple";
+    ctx.rotate(20 * Math.PI / 180);
+    ctx.fillRect(200, 300, 50, 50);
+    ctx.fillStyle = "gold";
+    ctx.fillRect(200, 350, 50, 50);
+
 </script>
 
 </body>
