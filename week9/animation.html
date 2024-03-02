@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<style>
+#container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: black;
+}
+#animate {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  background-color: whitesmoke;
+}
+</style>
+<body>
+
+<p><button onclick="changeColor()">Click Me</button></p> 
+
+<div id ="container">
+  <div id ="animate"></div>
+</div>
+
+<script>
+function changeColor() {
+  let id = null;
+  const elem = document.getElementById("animate");   
+  clearInterval(id);
+  id = setInterval(frame, 120);
+  let counter = 0;
+  const colors = ["black", "blue", "gold", "purple", "yellow", "orange", "red"]
+  function frame() {
+    if (elem.style.backgroundColor == "red") {
+      clearInterval(id);
+    } else {
+      counter++; 
+      elem.style.backgroundColor = colors[counter];
+    }
+  }
+}
+</script>
+
+</body>
+</html>
