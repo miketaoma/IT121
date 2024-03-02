@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html>
 <style>
-#container {
-  width: 400px;
-  height: 400px;
-  position: relative;
-  background: black;
-}
-#animate {
-  width: 400px;
-  height: 400px;
-  position: absolute;
-  background-color: whitesmoke;
-}
+  #container {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    background: black;
+  }
+  #animate {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    background-color: whitesmoke;
+  }
 </style>
 <body>
 
-<p><button onclick="changeColor()">Click Me</button></p>
+  <p><button onclick="changeColor()">Click Me</button></p>
 
-<div id ="container">
-  <div id ="animate"></div>
-</div>
+  <div id ="container">
+    <div id ="animate"></div>
+  </div>
 
-<canvas id="myCanvas" width="1000" height="800"></canvas>
+  <canvas id="myCanvas" width="1000" height="800"></canvas>
+  
 <script>
 function changeColor() {
   let id = null;
