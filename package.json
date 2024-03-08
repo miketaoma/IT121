@@ -1,0 +1,19 @@
+{
+  "name": "mikeserver",
+  "version": "1.0.0",
+  "description": "first time node setup",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miketaoma/IT121.git"
+  },
+  "author": "mike ma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miketaoma/IT121/issues"
+  },
+  "homepage": "https://github.com/miketaoma/IT121#readme"
+}
